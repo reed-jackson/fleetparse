@@ -1,0 +1,11 @@
+{
+	"service_entry": {
+		"type": "object",
+		"properties": {
+			"vehicle": {
+				"type": "string",
+				"description": "The vehicle that the service was performed on"
+			}
+		}
+	}
+}
