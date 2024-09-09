@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FleetParse Demo
+
+FleetParse is a mini-app that demonstrates AI-powered assistance for Fleetio customers. It helps users manage their fleet data by interpreting natural language requests and performing tasks such as creating service entries, fuel entries, and meter entries.
+
+## Features
+
+- AI-powered natural language processing
+- Seamless integration with Fleetio data structures
+- Real-time streaming responses
+- User-friendly chat interface
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version 14 or higher)
+- npm or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```
+   git clone https://github.com/your-username/fleetparse-demo.git
+   cd fleetparse-demo
+   ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   or
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```
+   yarn install
+   ```
 
-## Deploy on Vercel
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add your OpenAI API key:
+   ```
+   OPENAI_API_KEY=your_api_key_here
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Running the app
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Start the development server:
+
+   ```
+   npm run dev
+   ```
+
+   or
+
+   ```
+   yarn dev
+   ```
+
+2. Open your browser and navigate to `http://localhost:3000`
+
+## Usage
+
+1. Type your request in the text area (e.g., "Add a service entry for vehicle XYZ-123 with an oil change at 50,000 miles, costing $75")
+2. Click the "Send" button or press Enter
+3. The AI will process your request and provide a response, potentially creating or updating records in the Fleetio system
+
+## Tech Stack
+
+- Next.js 14
+- React 18
+- Radix UI for components
+- Tailwind CSS for styling
+- OpenAI GPT-4 for natural language processing
+
+## Project Structure
+
+- `app/`: Next.js app directory
+- `app/page.js`: Main chat interface
+- `app/api/generate/route.js`: API route for AI processing
+- `lib/`: Utility functions and data
+- `lib/task_recipes.json`: Definitions for various tasks the AI can perform
+- `lib/schemas.json`: JSON schemas for data structures
+
+## Contributing
+
+If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
