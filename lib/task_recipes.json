@@ -1,20 +1,17 @@
 {
 	"create_service_entry": {
-		"request_description": "User requests a service entry be added following a completed service on a fleet vehcile. May reference an invoice or recipet from the service performed.",
 		"prompt": "Create a service entry object ",
-		"required_data": "You must be able to determine the vehicle, services performed, mileage, and costs from the users request",
-		"schema_reference": "service_entry"
+		"required_data": "You must be able to determine the vehicle, services performed, mileage, and costs from the user's request",
+		"schema_references": ["service_entry", "service_tasks"]
 	},
 	"create_fuel_entry": {
-		"request_description": "User requests a fuel entry for a customer",
 		"prompt": "Create a fuel entry for the customer with the following details: [customer_details]",
 		"required_data": "You must be able to determine the vehicle, fuel type, quantity, mileage, and cost from the users request",
-		"schema_reference": "fuel_entry"
+		"schema_references": ["fuel_entry"]
 	},
 	"create_meter_entry": {
-		"request_description": "User requests a meter entry for a customer",
 		"prompt": "Create a meter entry for the customer with the following details: [customer_details]",
 		"required_data": "You must be able to determine the vehicle, meter type, and meter reading from the users request",
-		"schema_reference": "meter_entry"
+		"schema_references": ["meter_entry"]
 	}
 }

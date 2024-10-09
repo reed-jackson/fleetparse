@@ -100,7 +100,7 @@ export default function Home() {
 						<Text as="p" weight={message.role === "user" ? "bold" : "regular"}>
 							{message.role === "user" ? "You: " : "FleetParse: "}
 
-							{message.role === "user" ? message.content.message : message.content}
+							{message.role === "user" ? message.content : message.content}
 						</Text>
 					</Box>
 				))}

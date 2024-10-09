@@ -1,0 +1,14 @@
+{
+	"create_service_entry": {
+		"request_description": "User requests a service entry be added following a completed service on a fleet vehicle. May reference an invoice or receipt from the service performed.",
+		"required_data": "You must be able to determine the vehicle, services performed, mileage, and costs from the user's request"
+	},
+	"create_fuel_entry": {
+		"request_description": "Submits a fuel entry for a vehicle based on user input",
+		"required_data": "You must be able to determine the vehicle, fuel type, quantity, mileage, and cost from the users request"
+	},
+	"create_meter_entry": {
+		"request_description": "Submits a meter entry for a vehicle based on user input",
+		"required_data": "You must be able to determine the vehicle, meter type, and meter reading from the users request"
+	}
+}

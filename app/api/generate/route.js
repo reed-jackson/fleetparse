@@ -2,6 +2,8 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { generateText } from "ai";
 
 import task_recipes from "@/lib/task_recipes.json";
+import task_library from "@/lib/task_library.json";
+import schemas from "@/lib/schemas.json";
 
 const openai = createOpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
@@ -140,61 +142,6 @@ export async function POST(request) {
 
 				controller.close();
 				return;
-
-				generation_messages.push({
-					role: "user",
-					content: `Now, explain any specific methodologies or steps that you'd expect would contribute to the creation of this dish. Format your response in Markdown.`,
-				});
-
-				const { text: steps } = await generateText({
-					model: model,
-					system: system_prompt,
-					messages: generation_messages,
-				});
-
-				const steps_data = steps;
-
-				await sendMessage("step", steps_data);
-
-				// Proceed with recipe
-				generation_messages.push({
-					role: "assistant",
-					content: steps,
-				});
-
-				const recipe_generation_prompt = {
-					role: "user",
-					content: `Now, create a recipe based on what you've determined from the image and what we've talked through.
-         
-         Output in JSON format with keys: 
-            "title” (text),
-            "description" (text - a creative description of your recipe),
-            “ingredients” (array of objects with keys: "name" (text), "detail" (text - optional additional description for the ingredient || null), "category" ("pantry" || "produce" || "meat" || "seafood" || "frozen" || "dairy", "other"), "standard_measure" (text), "metric_measure" (text)),
-            "steps" (array of objects with keys: "title" (text), "content" (text))`,
-				};
-
-				generation_messages.push(recipe_generation_prompt);
-
-				const { text: recipe_text } = await generateText({
-					model: model,
-					system: system_prompt,
-					messages: generation_messages,
-				});
-
-				const recipe_data = JSON.parse(recipe_text);
-
-				recipe_data.main_image = imageUrl;
-
-				await sendMessage("recipe", recipe_data);
-
-				const json_ld = createJsonLd(recipe_data);
-
-				const generation_data = {
-					check: check_data,
-					ingredients: ingredients_data,
-					steps: steps_data,
-					additionalInfo: additionalInfo,
-				};
 
 				controller.close();
 			} catch (error) {

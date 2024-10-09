@@ -63,7 +63,7 @@ FleetParse is a mini-app that demonstrates AI-powered assistance for Fleetio cus
 
 1. Type your request in the text area (e.g., "Add a service entry for vehicle XYZ-123 with an oil change at 50,000 miles, costing $75")
 2. Click the "Send" button or press Enter
-3. The AI will process your request and provide a response, potentially creating or updating records in the Fleetio system
+3. The AI will process your request and provide a response, and mock creating or updating records in the Fleetio system
 
 ## Tech Stack
 

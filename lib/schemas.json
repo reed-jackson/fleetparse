@@ -2,10 +2,142 @@
 	"service_entry": {
 		"type": "object",
 		"properties": {
-			"vehicle": {
-				"type": "string",
-				"description": "The vehicle that the service was performed on"
-			}
-		}
+			"completed_at": { "type": "string", "format": "date-time" },
+			"started_at": { "type": "string", "format": "date-time" },
+			"vehicle_id": { "type": "integer" },
+			"vehicle_vin": { "type": "string" },
+			"vendor_id": { "type": "integer" },
+			"reference": { "type": "string" },
+			"label_list": { "type": "string" },
+			"general_notes": { "type": "string" },
+			"vmrs_repair_priority_class_id": { "type": "integer" },
+			"custom_fields": { "type": "object" },
+			"meter_entry_attributes": {
+				"type": "object",
+				"properties": {
+					"value": { "type": "string" },
+					"void": { "type": "boolean" }
+				},
+				"required": ["value", "void"]
+			},
+			"secondary_meter_entry_attributes": {
+				"type": "object",
+				"properties": {
+					"value": { "type": "string" },
+					"void": { "type": "boolean" }
+				},
+				"required": ["value", "void"]
+			},
+			"service_entry_line_items_attributes": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": { "type": "integer" },
+						"service_task_id": { "type": "integer" },
+						"type": { "type": "string" },
+						"description": { "type": "string" },
+						"labor_cost": { "type": "number" },
+						"parts_cost": { "type": "number" },
+						"subtotal": { "type": "number" },
+						"service_entry_line_item_id": { "type": "integer" },
+						"issue_ids": {
+							"type": "array",
+							"items": { "type": "string" }
+						},
+						"vmrs_reason_for_repair_id": { "type": "integer" },
+						"vmrs_system_group_id": { "type": "integer" },
+						"vmrs_system_id": { "type": "integer" },
+						"vmrs_component_id": { "type": "integer" },
+						"vmrs_assembly_id": { "type": "integer" }
+					}
+				}
+			},
+			"issue_ids": {
+				"type": "array",
+				"items": { "type": "integer" }
+			},
+			"service_task_ids": {
+				"type": "array",
+				"items": { "type": "integer" }
+			},
+			"comments_attributes": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"title": { "type": "string" },
+						"comment": { "type": "string" }
+					},
+					"required": ["title", "comment"]
+				}
+			},
+			"documents_attributes": {
+				"type": "object",
+				"properties": {
+					"name": { "type": "string" },
+					"file_url": { "type": "string" },
+					"file_mime_type": { "type": "string" },
+					"file_name": { "type": "string" },
+					"file_size": { "type": "string" }
+				}
+			},
+			"images_attributes": {
+				"type": "object",
+				"properties": {
+					"name": { "type": "string" },
+					"file_url": { "type": "string" },
+					"file_mime_type": { "type": "string" },
+					"file_name": { "type": "string" },
+					"file_size": { "type": "integer" }
+				}
+			},
+			"labor_subtotal": { "type": "number" },
+			"parts_subtotal": { "type": "number" },
+			"subtotal": { "type": "number" },
+			"discount": { "type": "number" },
+			"discount_percentage": { "type": "number" },
+			"discount_type": { "type": "string", "enum": ["percentage"] },
+			"tax_1": { "type": "number" },
+			"tax_1_percentage": { "type": "number" },
+			"tax_1_type": { "type": "string", "enum": ["percentage"] },
+			"tax_2": { "type": "number" },
+			"tax_2_percentage": { "type": "number" },
+			"tax_2_type": { "type": "string", "enum": ["percentage"] },
+			"total_amount": { "type": "number" }
+		},
+		"required": [
+			"completed_at",
+			"started_at",
+			"vehicle_id",
+			"vehicle_vin",
+			"vendor_id",
+			"reference",
+			"label_list",
+			"general_notes",
+			"vmrs_repair_priority_class_id",
+			"custom_fields",
+			"meter_entry_attributes",
+			"secondary_meter_entry_attributes",
+			"service_entry_line_items_attributes",
+			"issue_ids",
+			"service_task_ids",
+			"comments_attributes",
+			"documents_attributes",
+			"images_attributes",
+			"labor_subtotal",
+			"parts_subtotal",
+			"subtotal",
+			"discount",
+			"discount_percentage",
+			"discount_type",
+			"tax_1",
+			"tax_1_percentage",
+			"tax_1_type",
+			"tax_2",
+			"tax_2_percentage",
+			"tax_2_type",
+			"total_amount"
+		]
 	}
 }
